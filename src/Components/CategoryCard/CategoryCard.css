@@ -1,0 +1,28 @@
+.category-name {
+  position: absolute;
+  bottom: 1rem;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 900;
+  background: #161625ba;
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem;
+  letter-spacing: 0.08rem;
+}
+
+.category-image {
+  border-radius: 0.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.card-demo {
+  position: relative;
+  max-width: 22%;
+  flex: 22%;
+  flex-wrap: wrap;
+  margin: 1rem;
+  display: flex;
+}
