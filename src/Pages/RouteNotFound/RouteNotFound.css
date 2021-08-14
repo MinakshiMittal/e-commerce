@@ -1,0 +1,10 @@
+.route-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+}
+
+.error-image {
+  height: 80vh;
+}
