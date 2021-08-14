@@ -1,5 +1,7 @@
 @import url("https://mitra-ui.netlify.app/components.css");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/all.css");
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css");
 
 body {
   font-family: "Varela Round", sans-serif;
