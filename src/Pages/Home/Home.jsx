@@ -32,13 +32,11 @@ export const Home = () => {
               Self-care is how you take your power back.
             </span>
             <br /> This is an initiative to take care of your mental health by
-            listing out few things which you can buy and will help you bring peace of mind.
+            listing out few things which you can buy and will help you bring
+            peace of mind.
           </p>
         </div>
-        <button
-          className="getting-started"
-          onClick={() => navigate("/coder/login")}
-        >
+        <button className="getting-started" onClick={() => navigate("/login")}>
           Get Started
         </button>
         <CategoriesListing />
