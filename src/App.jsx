@@ -2,10 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import {
   Home,
-  ProductsListingPage,
+  ProductListingPage,
   RouteNotFound,
   Login,
   SignUp,
+  CategoryWiseProductListingPage,
 } from "./Pages";
 
 function App() {
@@ -13,9 +14,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductsListingPage />} />
+        <Route path="/products" element={<ProductListingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/categories/:categoryId"
+          element={<CategoryWiseProductListingPage />}
+        />
         <Route path="*" element={<RouteNotFound />} />
       </Routes>
     </div>

@@ -1,0 +1,25 @@
+.button.primary-btn {
+  background-color: #2cb8cbfa;
+  align-self: center;
+  width: 100%;
+}
+
+.product-image {
+  height: 50vh;
+}
+
+.fas {
+  color: white;
+}
+
+.offer {
+  font-size: 0.8rem;
+  font-weight: 900;
+  width: 40px;
+  height: 40px;
+}
+
+.card-demo {
+  flex: 30%;
+  max-width: 25%;
+}

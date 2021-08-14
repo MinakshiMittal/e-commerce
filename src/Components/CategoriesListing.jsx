@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react";
 import { CategoryCard } from ".";
 import axios from "axios";
+import { useCategories } from "../Contexts";
 
 export const CategoriesListing = () => {
-  const [categories, setCategories] = useState(null);
+  const {
+    state: { categories },
+  } = useCategories();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data, status } = await axios.get(
-          "https://mitra-cart.mittalminakshi.repl.co/categories"
-        );
-        console.log(data.categories, status);
-
-        if (status === 200) {
-          setCategories(data.categories);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, [categories]);
+  console.log(categories);
 
   return (
     <>
