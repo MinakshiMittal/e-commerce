@@ -1,9 +1,8 @@
 import "./MainNav.css";
-import { Link } from "react-router-dom";
-// import { useCoderAuth } from "../../Context";
+import { Link, useNavigate } from "react-router-dom";
 
 export const MainNav = () => {
-  // const { isCoderLogin, logout } = useCoderAuth();
+  const navigate = useNavigate();
   return (
     <div className="page-main-menu">
       <img
@@ -11,25 +10,24 @@ export const MainNav = () => {
         alt="logo"
         className="hero-image"
       ></img>
-      <div className="hero-name">CODE-N-MINGLE</div>
-      {/* {!isCoderLogin && ( */}
+      <div className="hero-name" onClick={() => navigate("/")}>
+        MITRA CART
+      </div>
       <Link to="/products" className="get-started">
         Products
       </Link>
-      {/* {
-      )} */}
-      {/* {!isCoderLogin && (
-        <Link className="login" to="/coder/login">
-          Log In
-        </Link>
-      )}
-      {isCoderLogin && <Link to="/coder/dashboard">Dashboard</Link>}
-      {isCoderLogin && (
-        <button className="logout-button" onClick={logout}>
-          Logout
-        </button>
-      )}
-      {!isCoderLogin && <Link to="/buyer">Become a Buyer</Link>} */}
+      <div class="badge-on-icon">
+        <div class="icon-type wishlist">
+          <i class="fas fa-heart"></i>
+          <div class="badge-type count">23</div>
+        </div>
+      </div>
+      <div class="badge-on-icon">
+        <div class="icon-type cart">
+          <i class="fas fa-shopping-cart"></i>
+          <div class="badge-type count">23</div>
+        </div>
+      </div>
     </div>
   );
 };

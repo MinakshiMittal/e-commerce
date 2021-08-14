@@ -1,0 +1,7 @@
+.products-listing {
+  display: flex;
+  margin-top: 5%;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
