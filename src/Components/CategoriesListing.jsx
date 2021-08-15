@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { CategoryCard } from ".";
-import axios from "axios";
 import { useCategories } from "../Contexts";
 
 export const CategoriesListing = () => {

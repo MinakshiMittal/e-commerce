@@ -7,6 +7,8 @@ import {
   Login,
   SignUp,
   CategoryWiseProductListingPage,
+  Cart,
+  Wishlist,
 } from "./Pages";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           path="/categories/:categoryId"
           element={<CategoryWiseProductListingPage />}
         />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="*" element={<RouteNotFound />} />
       </Routes>
     </div>

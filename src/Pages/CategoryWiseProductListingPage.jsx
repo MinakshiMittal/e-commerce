@@ -22,7 +22,7 @@ export const CategoryWiseProductListingPage = () => {
         console.error(error);
       }
     })();
-  }, [setCategoryWiseProducts]);
+  }, [setCategoryWiseProducts, categoryId]);
 
   return (
     <>
