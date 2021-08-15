@@ -64,6 +64,7 @@ export const useCartActions = () => {
           },
         }
       );
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
