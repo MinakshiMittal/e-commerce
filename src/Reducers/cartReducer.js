@@ -3,7 +3,7 @@ export const cartReducer = (state, action) => {
     case "FETCH_CART_SUCCESS":
       return {
         ...state,
-        cart: [...action.payload.cart],
+        itemsInCart: [...action.payload.itemsInCart],
       };
 
     case "FETCH_CART_ERROR":
@@ -12,7 +12,7 @@ export const cartReducer = (state, action) => {
         error: "Something went wrong",
       };
 
-    case "ADD_TO_CART":
-      return { ...state, cart: { ...state.cart } };
+    default:
+      return state;
   }
 };
