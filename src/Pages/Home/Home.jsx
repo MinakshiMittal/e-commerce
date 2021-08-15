@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router";
 import { CategoriesListing, MainNav } from "../../Components";
+import { useAuth } from "../../Contexts";
 import "./Home.css";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { isUserLogin } = useAuth();
 
   return (
     <>
@@ -36,7 +38,12 @@ export const Home = () => {
             peace of mind.
           </p>
         </div>
-        <button className="getting-started" onClick={() => navigate("/login")}>
+        <button
+          className="getting-started"
+          onClick={() => {
+            isUserLogin ? navigate(`/products`) : navigate(`/login`);
+          }}
+        >
           Get Started
         </button>
         <CategoriesListing />

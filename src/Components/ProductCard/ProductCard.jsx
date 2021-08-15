@@ -1,6 +1,22 @@
 import "./ProductCard.css";
+import { useCartActions } from "../../hooks/useCartActions";
+import { useCart } from "../../Contexts";
+import { useNavigate } from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
+  const { addToCart } = useCartActions();
+  const {
+    state: { itemsInCart },
+  } = useCart();
+  const navigate = useNavigate();
+
+  const isItemInCart = () => {
+    return (
+      itemsInCart.find((item) => item.product._id === product._id) !== undefined
+    );
+  };
+
+  console.log(isItemInCart());
   return (
     <>
       <div className="card-demo" key={product._id}>
@@ -17,7 +33,14 @@ export const ProductCard = ({ product }) => {
             {/* <small className="striked-original-price">₹1299</small>
             <small className="amount-saved">Save: ₹700</small> */}
           </div>
-          <button className="button primary-btn">ADD TO CART</button>
+          <button
+            className="button primary-btn"
+            onClick={() => {
+              !isItemInCart() ? addToCart(product._id) : navigate("/cart");
+            }}
+          >
+            {!isItemInCart() ? "ADD TO CART" : "GO TO CART"}
+          </button>
           <div className="card-badge-offer">
             {product.discount && (
               <div className="badge-type offer">{product.offer}% off</div>

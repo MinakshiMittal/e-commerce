@@ -1,8 +1,16 @@
 import "./MainNav.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useCart, useWishlist } from "../../Contexts";
 
 export const MainNav = () => {
   const navigate = useNavigate();
+  const {
+    state: { itemsInCart },
+  } = useCart();
+  const {
+    state: { itemsInWishlist },
+  } = useWishlist();
+
   return (
     <div className="page-main-menu">
       <img
@@ -16,16 +24,19 @@ export const MainNav = () => {
       <Link to="/products" className="get-started">
         Products
       </Link>
-      <div class="badge-on-icon">
-        <div class="icon-type wishlist">
-          <i class="fas fa-heart"></i>
-          <div class="badge-type count">23</div>
+      <div className="badge-on-icon">
+        <div
+          className="icon-type wishlist"
+          onClick={() => navigate("/wishlist")}
+        >
+          <i className="fas fa-heart"></i>
+          <div className="badge-type count">{itemsInWishlist.length}</div>
         </div>
       </div>
-      <div class="badge-on-icon">
-        <div class="icon-type cart">
-          <i class="fas fa-shopping-cart"></i>
-          <div class="badge-type count">23</div>
+      <div className="badge-on-icon">
+        <div className="icon-type cart" onClick={() => navigate("/cart")}>
+          <i className="fas fa-shopping-cart"></i>
+          <div className="badge-type count">{itemsInCart.length}</div>
         </div>
       </div>
     </div>
