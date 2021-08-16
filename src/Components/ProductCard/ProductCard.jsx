@@ -10,21 +10,28 @@ export const ProductCard = ({ product }) => {
   } = useCart();
   const navigate = useNavigate();
 
+  console.log(itemsInCart);
+
+  const inWishlist = {
+    color: "",
+  };
+
   const isItemInCart = () => {
     return (
-      itemsInCart.find((item) => item.product._id === product._id) !== undefined
+      itemsInCart?.find((item) => item.product._id === product._id) !==
+      undefined
     );
   };
 
-  console.log(isItemInCart());
+  console.log("function", isItemInCart());
   return (
     <>
       <div className="card-demo" key={product._id}>
         <div className="card-container">
           <img className="product-image" src={product.imageUrl} alt="product" />
           <div className="product-name-with-wishlist-icon">
-            <h4>{product.name}</h4>
-            <i className="fas fa-heart"></i>
+            <h4 className="product-name">{product.name}</h4>
+            <i className="fas fa-heart fa-2x wishlist" style={inWishlist}></i>
           </div>
           <p className="product-description-text"></p>
 
@@ -34,7 +41,7 @@ export const ProductCard = ({ product }) => {
             <small className="amount-saved">Save: ₹700</small> */}
           </div>
           <button
-            className="button primary-btn"
+            className="button primary-btn add-to-cart"
             onClick={() => {
               !isItemInCart() ? addToCart(product._id) : navigate("/cart");
             }}
