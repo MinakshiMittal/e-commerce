@@ -39,7 +39,7 @@ export const WishlistProvider = ({ children }) => {
         dispatch({ type: "FETCH_WISHLIST_ERROR" });
       }
     })();
-  }, [dispatch, token]);
+  }, [dispatch, token, state]);
 
   return (
     <WishlistContext.Provider value={{ state, dispatch }}>

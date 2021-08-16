@@ -1,15 +1,18 @@
-.button.primary-btn {
+.button.primary-btn.add-to-cart {
   background-color: #2cb8cbfa;
   align-self: center;
-  width: 100%;
+  width: 90%;
 }
 
 .product-image {
   height: 50vh;
 }
 
-.fas {
-  color: white;
+.fas.fa-heart.wishlist {
+  color: #2cb8cb4d;
+  position: absolute;
+  top: 19rem;
+  right: 1rem;
 }
 
 .offer {
@@ -22,4 +25,14 @@
 .card-demo {
   flex: 30%;
   max-width: 25%;
+}
+
+.product-name-with-wishlist-icon {
+  flex-grow: 1;
+  margin-right: 2.7rem;
+  align-items: flex-start;
+}
+
+.product-name {
+  color: white;
 }

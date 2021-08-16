@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
         dispatch({ type: "FETCH_CART_ERROR" });
       }
     })();
-  }, [dispatch, token]);
+  }, [dispatch, token, state]);
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>

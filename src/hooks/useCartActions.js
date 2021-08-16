@@ -27,7 +27,10 @@ export const useCartActions = () => {
       console.log(response);
 
       if (response.status === 200) {
-        cartDispatch({ type: "ADD_TO_CART", payload: { itemsInCart } });
+        cartDispatch({
+          type: "ADD_TO_CART",
+          payload: { itemsInCart: response.data.cart.itemsInCart },
+        });
       }
     } catch (error) {
       console.error(error);

@@ -12,6 +12,12 @@ export const cartReducer = (state, action) => {
         error: "Something went wrong",
       };
 
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        itemsInCart: [...action.payload.itemsInCart],
+      };
+
     default:
       return state;
   }

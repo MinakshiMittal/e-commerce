@@ -16,7 +16,6 @@ export const useWishlistActions = () => {
         `https://mitra-cart-2.mittalminakshi.repl.co/wishlist`,
         {
           product: productId,
-          quantity: 1,
         },
         {
           headers: {
@@ -29,7 +28,9 @@ export const useWishlistActions = () => {
       if (response.status === 200) {
         wishlistDispatch({
           type: "ADD_TO_WISHLIST",
-          payload: { itemsInWishlist },
+          payload: {
+            itemsInWishlist: response.data.wishlistDispatch.itemsInWishlist,
+          },
         });
       }
     } catch (error) {

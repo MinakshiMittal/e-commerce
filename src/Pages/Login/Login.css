@@ -2,6 +2,12 @@
   background-color: black;
 }
 
+.form-heading {
+  color: #2cb8cb;
+  font-weight: 900;
+  font-size: 2.8rem;
+}
+
 .background-image-container > img {
   height: 100vh;
   position: relative;
@@ -11,35 +17,39 @@
   position: absolute;
   top: 5rem;
   right: 5rem;
-  border: 2px solid black;
-  border-radius: 1rem;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40%;
+  box-shadow: 0.1rem 0.1rem 0.5rem #2cb8cb;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
 }
 
 input {
   padding: 0.7rem;
   border-radius: 0.5rem;
-  margin: 0.5rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  width: 100%;
 }
 
 label {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: yellow;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #2cb8cb;
 }
 
-.primary-btn {
-  width: 30%;
+.button.primary-btn {
+  background-color: #2cb8cb;
   align-self: center;
+  width: 40%;
+  border: none;
+  font-family: "Varela Round";
+  font-weight: 900;
+  font-size: 1.2rem;
 }

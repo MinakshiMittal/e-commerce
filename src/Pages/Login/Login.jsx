@@ -22,7 +22,7 @@ export const Login = () => {
         />
       </div>
       <div className="form-container">
-        <h1 className="">Log In</h1>
+        <h1 className="form-heading">Log In</h1>
         <form className="login-form">
           <label>Username</label>
           <input
