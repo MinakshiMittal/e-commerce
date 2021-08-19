@@ -10,6 +10,7 @@ import {
   Cart,
   Wishlist,
 } from "./Pages";
+import { PrivateRoute } from "./Components";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
           path="/categories/:categoryId"
           element={<CategoryWiseProductListingPage />}
         />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <PrivateRoute path="/cart" element={<Cart />} />
+        <PrivateRoute path="/wishlist" element={<Wishlist />} />
         <Route path="*" element={<RouteNotFound />} />
       </Routes>
     </div>

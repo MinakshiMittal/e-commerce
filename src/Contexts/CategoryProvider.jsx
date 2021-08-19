@@ -19,7 +19,6 @@ export const CategoryProvider = ({ children }) => {
         const response = await axios.get(
           "https://mitra-cart-2.mittalminakshi.repl.co/categories"
         );
-        console.log("response", response);
         if (response.status === 200) {
           dispatch({
             type: "FETCH_CATEGORIES_SUCCESS",

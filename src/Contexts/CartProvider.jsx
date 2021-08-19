@@ -26,7 +26,6 @@ export const CartProvider = ({ children }) => {
             },
           }
         );
-        console.log("response", response);
         if (response.status === 200) {
           dispatch({
             type: "FETCH_CART_SUCCESS",

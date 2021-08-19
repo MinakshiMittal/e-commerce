@@ -10,8 +10,6 @@ export const ProductCard = ({ product }) => {
   } = useCart();
   const navigate = useNavigate();
 
-  console.log(itemsInCart);
-
   const inWishlist = {
     color: "",
   };
@@ -23,7 +21,6 @@ export const ProductCard = ({ product }) => {
     );
   };
 
-  console.log("function", isItemInCart());
   return (
     <>
       <div className="card-demo" key={product._id}>

@@ -1,0 +1,50 @@
+.cart-product-container {
+  display: flex;
+  width: 50%;
+  margin: 1rem;
+  border: 2px solid deepskyblue;
+  padding: 1rem;
+  position: relative;
+}
+
+.product-image.cart {
+  height: 30vh;
+  width: 10rem;
+  border-radius: 0.5rem;
+}
+
+.button.primary-btn.increment,
+.button.primary-btn.decrement {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-weight: 700;
+  font-size: x-large;
+  height: 25px;
+  width: 25px;
+}
+
+.update-quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  color: white;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name-with-wishlist-icon.cart {
+  flex-grow: 1;
+  align-items: flex-start;
+}
+
+.current-product-price {
+  color: #db5581;
+}

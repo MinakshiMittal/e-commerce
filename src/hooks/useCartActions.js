@@ -3,12 +3,7 @@ import { useAuth, useCart } from "../Contexts";
 
 export const useCartActions = () => {
   const { token } = useAuth();
-  const {
-    dispatch: cartDispatch,
-    state: { itemsInCart },
-  } = useCart();
-
-  console.log(itemsInCart);
+  const { dispatch: cartDispatch } = useCart();
 
   const addToCart = async (productId) => {
     try {
@@ -24,7 +19,6 @@ export const useCartActions = () => {
           },
         }
       );
-      console.log(response);
 
       if (response.status === 200) {
         cartDispatch({
@@ -39,7 +33,7 @@ export const useCartActions = () => {
 
   const removeFromCart = async (productId) => {
     try {
-      const response = await axios.dele(
+      const response = await axios.delete(
         `https://mitra-cart-2.mittalminakshi.repl.co/cart/${productId}`,
         {
           headers: {
@@ -49,29 +43,57 @@ export const useCartActions = () => {
       );
 
       console.log(response);
+
+      if (response.status === 200) {
+        cartDispatch({
+          type: "REMOVE_FROM_CART",
+          payload: { itemsInCart: response.data.cart.itemsInCart },
+        });
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const updateCart = async (productId, quantity) => {
+  const updateQuantity = async (productId, quantity) => {
     try {
-      const response = await axios.post(
+      console.log(productId, quantity);
+
+      const {
+        data: { cart },
+        status,
+      } = await axios.post(
         `https://mitra-cart-2.mittalminakshi.repl.co/cart/${productId}`,
         {
-          quantity,
+          quantity: quantity,
         },
         {
-          header: {
+          headers: {
             authorization: token,
           },
         }
       );
-      console.log(response);
+      console.log(
+        "increment",
+        cart,
+        "id",
+        cart.itemsInCart.product,
+        "quan",
+        cart.itemsInCart.quantity
+      );
+      if (status === 200) {
+        cartDispatch({
+          type: "UPDATE_QUANTITY",
+          payload: {
+            _id: cart.itemsInCart.product,
+            quantity: cart.itemsInCart.quantity,
+          },
+        });
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  return { addToCart, removeFromCart, updateCart };
+  return { addToCart, removeFromCart, updateQuantity };
 };

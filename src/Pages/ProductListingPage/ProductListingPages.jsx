@@ -11,7 +11,7 @@ export const ProductListingPage = () => {
       <MainNav />
       <div className="products-listing">
         {products.map((product) => {
-          return <ProductCard product={product} />;
+          return <ProductCard product={product} key={product._id} />;
         })}
       </div>
     </>

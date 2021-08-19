@@ -19,7 +19,6 @@ export const ProductProvider = ({ children }) => {
         const response = await axios.get(
           "https://mitra-cart-2.mittalminakshi.repl.co/products"
         );
-        console.log("response", response);
         if (response.status === 200) {
           dispatch({
             type: "FETCH_PRODUCTS_SUCCESS",
