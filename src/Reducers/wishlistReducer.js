@@ -12,6 +12,16 @@ export const wishlistReducer = (state, action) => {
         error: "Something went wrong",
       };
 
+    case "ADD_TO_WISHLIST":
+      console.log("payload", action.payload);
+      return {
+        ...state,
+        itemsInWishlist: [...action.payload.itemsInWishlist],
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return { ...state, itemsInWishlist: [...action.payload.itemsInWishlist] };
+
     default:
       return state;
   }

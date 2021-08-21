@@ -1,4 +1,4 @@
-import { MainNav, ProductCard } from "../Components";
+import { MainNav, WishlistCard } from "../Components";
 import { useWishlist } from "../Contexts";
 
 export const Wishlist = () => {
@@ -12,7 +12,7 @@ export const Wishlist = () => {
       <div className="products-listing">
         {itemsInWishlist.map((product) => {
           console.log("hiwish", product.product);
-          return <ProductCard product={product.product} />;
+          return <WishlistCard product={product.product} />;
         })}
       </div>
     </>

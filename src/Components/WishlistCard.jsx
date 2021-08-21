@@ -1,20 +1,18 @@
-import "./ProductCard.css";
-import { useCartActions } from "../../hooks/useCartActions";
-import { useWishlistActions } from "../../hooks/useWishlistActions";
-import { useCart, useWishlist } from "../../Contexts";
+import { useWishlistActions } from "../hooks/useWishlistActions";
+import { useCartActions } from "../hooks/useCartActions";
+import { useWishlist, useCart } from "../Contexts";
 import { useNavigate } from "react-router-dom";
 
-export const ProductCard = ({ product }) => {
-  const { addToCart } = useCartActions();
+export const WishlistCard = ({ product }) => {
   const { addToWishlist, removeFromWishlist } = useWishlistActions();
+  const { addToCart } = useCartActions();
+  const {
+    state: { itemsInWishlist },
+  } = useWishlist();
   const {
     state: { itemsInCart },
   } = useCart();
   const navigate = useNavigate();
-
-  const {
-    state: { itemsInWishlist },
-  } = useWishlist();
 
   const inWishlist = {
     color: "#f50057",
@@ -68,7 +66,10 @@ export const ProductCard = ({ product }) => {
               !isItemInCart() ? addToCart(product._id) : navigate("/cart");
             }}
           >
-            {!isItemInCart() ? "ADD TO CART" : "GO TO CART"}
+            {!isItemInCart() ? "MOVE TO CART" : "GO TO CART"}
+          </button>
+          <button class="card-dismiss-button">
+            <i class="fas fa-lg fa-times"></i>
           </button>
           <div className="card-badge-offer">
             {product.discount && (

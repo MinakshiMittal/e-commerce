@@ -1,6 +1,6 @@
 import "./MainNav.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart, useWishlist } from "../../Contexts";
+import { useCart, useWishlist, useAuth } from "../../Contexts";
 
 export const MainNav = () => {
   const navigate = useNavigate();
@@ -10,6 +10,8 @@ export const MainNav = () => {
   const {
     state: { itemsInWishlist },
   } = useWishlist();
+
+  const { logout } = useAuth();
 
   return (
     <div className="page-main-menu">
@@ -21,6 +23,11 @@ export const MainNav = () => {
       <div className="hero-name" onClick={() => navigate("/")}>
         MITRA CART
       </div>
+      <i
+        className="fas fa-sign-out-alt"
+        style={{ marginRight: "2rem", cursor: "pointer" }}
+        onClick={() => logout()}
+      ></i>
       <Link to="/products" className="get-started">
         Products
       </Link>

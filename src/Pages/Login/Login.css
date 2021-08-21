@@ -1,5 +1,8 @@
 .login-page {
-  background-color: black;
+  /* background-color: black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .form-heading {
@@ -11,18 +14,21 @@
 .background-image-container > img {
   height: 100vh;
   position: relative;
+  flex: 60%;
+  max-width: 85%;
 }
 
 .form-container {
   position: absolute;
-  top: 5rem;
-  right: 5rem;
+  right: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 37%;
   box-shadow: 0.1rem 0.1rem 0.5rem #2cb8cb;
+  flex: 40%;
+  max-width: 40%;
 }
 
 .login-form {
@@ -52,4 +58,21 @@ label {
   font-family: "Varela Round";
   font-weight: 900;
   font-size: 1.2rem;
+}
+
+.signup-content,
+.login-content {
+  text-align: center;
+  font-size: 1.1rem;
+  color: white;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 0.3rem;
+}
+
+.signup-link,
+.login-link {
+  color: #2cb8cb;
+  font-weight: 900;
+  cursor: pointer;
 }

@@ -1,12 +1,16 @@
 import "./Login.css";
 import { useAuth } from "../../Contexts";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Shopping from "../../Assets/Shopping1.svg";
 
 export const Login = () => {
   const { isUserLogin, loginUserWithCredentials, logout } = useAuth();
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const navigate = useNavigate();
 
   const loginHandler = (event) => {
     event.preventDefault();
@@ -16,10 +20,7 @@ export const Login = () => {
   return (
     <div className="login-page">
       <div className="background-image-container">
-        <img
-          src="https://cdn.pixabay.com/photo/2015/06/02/17/35/identity-795295_1280.jpg"
-          alt="background"
-        />
+        <img src={Shopping} alt="background" />
       </div>
       <div className="form-container">
         <h1 className="form-heading">Log In</h1>
@@ -39,6 +40,12 @@ export const Login = () => {
           <button class="button primary-btn" onClick={loginHandler}>
             Log In
           </button>
+          <p className="signup-content">
+            Create a new account.{" "}
+            <span className="signup-link" onClick={() => navigate("/signup")}>
+              Sign Up
+            </span>
+          </p>
         </form>
       </div>
     </div>

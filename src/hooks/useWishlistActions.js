@@ -23,14 +23,13 @@ export const useWishlistActions = () => {
           },
         }
       );
-      console.log(response);
+
+      console.log("add", response);
 
       if (response.status === 200) {
         wishlistDispatch({
           type: "ADD_TO_WISHLIST",
-          payload: {
-            itemsInWishlist: response.data.wishlistDispatch.itemsInWishlist,
-          },
+          payload: { itemsInWishlist: response.data.wishlist.itemsInWishlist },
         });
       }
     } catch (error) {
@@ -40,7 +39,7 @@ export const useWishlistActions = () => {
 
   const removeFromWishlist = async (productId) => {
     try {
-      const response = await axios.dele(
+      const response = await axios.delete(
         `https://mitra-cart-2.mittalminakshi.repl.co/wishlist/${productId}`,
         {
           headers: {
@@ -49,7 +48,14 @@ export const useWishlistActions = () => {
         }
       );
 
-      console.log(response);
+      console.log("remove", response);
+
+      if (response.status === 200) {
+        wishlistDispatch({
+          type: "REMOVE_FROM_WISHLIST",
+          payload: { itemsInWishlist: response.data.wishlist.itemsInWishlist },
+        });
+      }
     } catch (error) {
       console.error(error);
     }

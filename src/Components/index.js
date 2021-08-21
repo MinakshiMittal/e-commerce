@@ -5,3 +5,4 @@ export { ProductCard } from "./ProductCard/ProductCard";
 export { Loader } from "./Loader";
 export { PrivateRoute } from "./PrivateRoute";
 export { CartCard } from "./CartCard/CartCard";
+export { WishlistCard } from "./WishlistCard";
