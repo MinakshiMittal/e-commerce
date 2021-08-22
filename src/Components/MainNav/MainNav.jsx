@@ -11,7 +11,7 @@ export const MainNav = () => {
     state: { itemsInWishlist },
   } = useWishlist();
 
-  const { logout } = useAuth();
+  const { logout, isUserLogin } = useAuth();
 
   return (
     <div className="page-main-menu">
@@ -23,11 +23,21 @@ export const MainNav = () => {
       <div className="hero-name" onClick={() => navigate("/")}>
         MITRA CART
       </div>
-      <i
-        className="fas fa-sign-out-alt"
-        style={{ marginRight: "2rem", cursor: "pointer" }}
-        onClick={() => logout()}
-      ></i>
+      {isUserLogin && (
+        <i
+          className="fas fa-sign-out-alt"
+          style={{ marginRight: "2rem", cursor: "pointer" }}
+          onClick={() => logout()}
+        ></i>
+      )}
+      {!isUserLogin && (
+        <button
+          className="button primart-btn"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
+      )}
       <Link to="/products" className="get-started">
         Products
       </Link>

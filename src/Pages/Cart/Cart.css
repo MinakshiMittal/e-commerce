@@ -1,7 +1,7 @@
 .products-listing.cart {
   display: flex;
-  margin-top: 5%;
-  padding: 0.5rem;
+  margin-top: 0;
+  padding: 0;
   flex-wrap: wrap;
   justify-content: center;
 }

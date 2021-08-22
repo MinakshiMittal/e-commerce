@@ -59,8 +59,6 @@ export const ProductCard = ({ product }) => {
 
           <div className="product-price">
             <p className="current-product-price">₹{product.price}</p>
-            {/* <small className="striked-original-price">₹1299</small>
-            <small className="amount-saved">Save: ₹700</small> */}
           </div>
           <button
             className="button primary-btn add-to-cart"
