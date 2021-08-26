@@ -12,8 +12,6 @@ export const CategoriesListing = () => {
     state: { categories, error },
   } = useCategories();
 
-  console.log(categories);
-
   return (
     <>
       <h2 className="categories-title">Categories</h2>
@@ -21,7 +19,7 @@ export const CategoriesListing = () => {
         <h1>{error}</h1>
         {!categories && <h1 style={{ color: "white" }}>Hi</h1>}
         {categories?.map((category) => {
-          return <CategoryCard category={category} />;
+          return <CategoryCard category={category} key={category._id} />;
         })}
       </div>
     </>

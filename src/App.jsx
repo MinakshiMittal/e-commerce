@@ -9,10 +9,15 @@ import {
   CategoryWiseProductListingPage,
   Cart,
   Wishlist,
+  Checkout,
+  ProductDetailsPage,
 } from "./Pages";
 import { PrivateRoute } from "./Components";
+import { useDataLoading } from "./hooks/useDataLoading";
 
 function App() {
+  useDataLoading();
+
   return (
     <div className="App">
       <Routes>
@@ -26,6 +31,8 @@ function App() {
         />
         <PrivateRoute path="/cart" element={<Cart />} />
         <PrivateRoute path="/wishlist" element={<Wishlist />} />
+        <PrivateRoute path="/checkout" element={<Checkout />} />
+        <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="*" element={<RouteNotFound />} />
       </Routes>
     </div>

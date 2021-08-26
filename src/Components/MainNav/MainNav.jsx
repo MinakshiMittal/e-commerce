@@ -47,13 +47,17 @@ export const MainNav = () => {
           onClick={() => navigate("/wishlist")}
         >
           <i className="fas fa-heart"></i>
-          <div className="badge-type count">{itemsInWishlist.length}</div>
+          {isUserLogin && (
+            <div className="badge-type count">{itemsInWishlist.length}</div>
+          )}
         </div>
       </div>
       <div className="badge-on-icon">
         <div className="icon-type cart" onClick={() => navigate("/cart")}>
           <i className="fas fa-shopping-cart"></i>
-          <div className="badge-type count">{itemsInCart.length}</div>
+          {isUserLogin && (
+            <div className="badge-type count">{itemsInCart.length}</div>
+          )}
         </div>
       </div>
     </div>

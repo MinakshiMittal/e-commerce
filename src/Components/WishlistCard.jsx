@@ -4,7 +4,7 @@ import { useWishlist, useCart } from "../Contexts";
 import { useNavigate } from "react-router-dom";
 
 export const WishlistCard = ({ product }) => {
-  const { addToWishlist, removeFromWishlist } = useWishlistActions();
+  const { removeFromWishlist } = useWishlistActions();
   const { addToCart } = useCartActions();
   const {
     state: { itemsInWishlist },
@@ -46,19 +46,13 @@ export const WishlistCard = ({ product }) => {
             <i
               className="fas fa-heart fa-2x wishlist"
               style={!isItemInWishlist() ? notInWishlist : inWishlist}
-              onClick={() =>
-                !isItemInWishlist()
-                  ? addToWishlist(product._id)
-                  : removeFromWishlist(product._id)
-              }
+              onClick={() => removeFromWishlist(product._id)}
             ></i>
           </div>
           <p className="product-description-text"></p>
 
           <div className="product-price">
             <p className="current-product-price">₹{product.price}</p>
-            {/* <small className="striked-original-price">₹1299</small>
-            <small className="amount-saved">Save: ₹700</small> */}
           </div>
           <button
             className="button primary-btn add-to-cart"
@@ -68,8 +62,11 @@ export const WishlistCard = ({ product }) => {
           >
             {!isItemInCart() ? "MOVE TO CART" : "GO TO CART"}
           </button>
-          <button class="card-dismiss-button">
-            <i class="fas fa-lg fa-times"></i>
+          <button
+            className="card-dismiss-button"
+            onClick={() => removeFromWishlist(product._id)}
+          >
+            <i className="fas fa-lg fa-times"></i>
           </button>
           <div className="card-badge-offer">
             {product.discount && (

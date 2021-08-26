@@ -42,9 +42,19 @@ export const ProductCard = ({ product }) => {
     <>
       <div className="card-demo" key={product._id}>
         <div className="card-container">
-          <img className="product-image" src={product.imageUrl} alt="product" />
+          <img
+            className="product-image"
+            src={product.imageUrl}
+            alt="product"
+            onClick={() => navigate(`/products/${product._id}`)}
+          />
           <div className="product-name-with-wishlist-icon">
-            <h4 className="product-name">{product.name}</h4>
+            <h4
+              className="product-name"
+              onClick={() => navigate(`/products/${product._id}`)}
+            >
+              {product.name}
+            </h4>
             <i
               className="fas fa-heart fa-2x wishlist"
               style={!isItemInWishlist() ? notInWishlist : inWishlist}
@@ -58,7 +68,12 @@ export const ProductCard = ({ product }) => {
           <p className="product-description-text"></p>
 
           <div className="product-price">
-            <p className="current-product-price">₹{product.price}</p>
+            <p
+              className="current-product-price"
+              onClick={() => navigate(`/products/${product._id}`)}
+            >
+              ₹{product.price}
+            </p>
           </div>
           <button
             className="button primary-btn add-to-cart"

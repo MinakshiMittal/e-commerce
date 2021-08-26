@@ -5,3 +5,15 @@
   flex-wrap: wrap;
   justify-content: flex-end;
 }
+
+.sort-and-filter-container {
+  flex: 20%;
+  max-width: 100%;
+}
+
+.products-container {
+  flex: 80%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

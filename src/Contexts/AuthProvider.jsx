@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(savedToken);
   const [userDetails, setUserDetails] = useState(userId);
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const signUpUserWithDetails = async (
     firstName,
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }) => {
       const userLoginResponse = await loginService(email, password);
       if (userLoginResponse.status === 200) {
         loginUser(userLoginResponse.data);
-        navigate("/products");
+        navigate(state?.from ? state.from : "/");
       }
     } catch (error) {
       console.error(error);
@@ -69,14 +70,14 @@ export const AuthProvider = ({ children }) => {
     setToken(token);
     setLogin(true);
     setUserDetails(userId);
-    localStorage.setItem(
+    localStorage?.setItem(
       "login",
       JSON.stringify({ isUserLoggedIn: true, token, userId })
     );
   };
 
   const logout = () => {
-    localStorage.removeItem("login");
+    localStorage?.removeItem("login");
     setLogin(false);
     setToken(null);
     navigate("/");

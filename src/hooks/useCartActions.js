@@ -42,8 +42,6 @@ export const useCartActions = () => {
         }
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         cartDispatch({
           type: "REMOVE_FROM_CART",
@@ -57,8 +55,6 @@ export const useCartActions = () => {
 
   const updateQuantity = async (productId, quantity) => {
     try {
-      console.log(productId, quantity);
-
       const {
         data: { cart },
         status,
@@ -73,14 +69,7 @@ export const useCartActions = () => {
           },
         }
       );
-      console.log(
-        "increment",
-        cart,
-        "id",
-        cart.itemsInCart.product,
-        "quan",
-        cart.itemsInCart.quantity
-      );
+
       if (status === 200) {
         cartDispatch({
           type: "UPDATE_QUANTITY",

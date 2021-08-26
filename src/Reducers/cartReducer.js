@@ -13,14 +13,12 @@ export const cartReducer = (state, action) => {
       };
 
     case "ADD_TO_CART":
-      console.log("payload", action.payload);
       return {
         ...state,
         itemsInCart: [...action.payload.itemsInCart],
       };
 
     case "UPDATE_QUANTITY":
-      console.log("payload", action.payload._id);
       return {
         ...state,
         itemsInCart: state.itemsInCart.map((product) => {
@@ -32,7 +30,6 @@ export const cartReducer = (state, action) => {
       };
 
     case "DECREMENT_QUANTITY":
-      console.log(action.payload);
       return {
         ...state,
         itemsInCart: state.itemsInCart.map((product) => {
@@ -45,6 +42,12 @@ export const cartReducer = (state, action) => {
 
     case "REMOVE_FROM_CART":
       return { ...state, itemsInCart: [...action.payload.itemsInCart] };
+
+    case "INITIAL_CART":
+      return {
+        ...state,
+        itemsInCart: [],
+      };
 
     default:
       return state;

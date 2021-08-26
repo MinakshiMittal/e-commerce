@@ -1,7 +1,5 @@
 .login-page {
-  /* background-color: black; */
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 
@@ -11,16 +9,20 @@
   font-size: 2.8rem;
 }
 
+.background-image-container {
+  margin-left: 7rem;
+}
+
 .background-image-container > img {
   height: 100vh;
   position: relative;
   flex: 60%;
-  max-width: 85%;
+  max-width: 60%;
 }
 
 .form-container {
   position: absolute;
-  right: 2.2rem;
+  right: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

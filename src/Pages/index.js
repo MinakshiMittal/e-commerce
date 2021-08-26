@@ -6,3 +6,5 @@ export { SignUp } from "./SignUp";
 export { CategoryWiseProductListingPage } from "./CategoryWiseProductListingPage";
 export { Cart } from "./Cart/Cart";
 export { Wishlist } from "./Wishlist";
+export { Checkout } from "./Checkout/Checkout";
+export { ProductDetailsPage } from "./ProductDetailsPage/ProductDetailsPage";

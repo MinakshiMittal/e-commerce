@@ -48,3 +48,13 @@
 .current-product-price {
   color: #db5581;
 }
+
+.far.fa-trash-alt {
+  color: #2cb8cb;
+  font-size: x-large;
+  padding: 0;
+}
+
+.far.fa-trash-alt:hover {
+  opacity: 0.5;
+}

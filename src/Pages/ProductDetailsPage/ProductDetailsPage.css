@@ -1,0 +1,13 @@
+.product-image.details-page {
+  max-width: 80%;
+  /* flex: 50%; */
+  height: 80vh;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.product-details-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

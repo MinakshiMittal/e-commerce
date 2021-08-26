@@ -5,7 +5,6 @@ export const Wishlist = () => {
   const {
     state: { itemsInWishlist },
   } = useWishlist();
-  console.log(itemsInWishlist);
 
   const wishlistLength = itemsInWishlist.length;
 
@@ -15,8 +14,12 @@ export const Wishlist = () => {
       {wishlistLength && (
         <div className="products-listing">
           {itemsInWishlist.map((product) => {
-            console.log("hiwish", product.product);
-            return <WishlistCard product={product.product} />;
+            return (
+              <WishlistCard
+                product={product.product}
+                key={product.product._id}
+              />
+            );
           })}
         </div>
       )}

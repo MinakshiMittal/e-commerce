@@ -3,12 +3,7 @@ import { useAuth, useWishlist } from "../Contexts";
 
 export const useWishlistActions = () => {
   const { token } = useAuth();
-  const {
-    dispatch: wishlistDispatch,
-    state: { itemsInWishlist },
-  } = useWishlist();
-
-  console.log(itemsInWishlist);
+  const { dispatch: wishlistDispatch } = useWishlist();
 
   const addToWishlist = async (productId) => {
     try {
@@ -23,8 +18,6 @@ export const useWishlistActions = () => {
           },
         }
       );
-
-      console.log("add", response);
 
       if (response.status === 200) {
         wishlistDispatch({
@@ -47,8 +40,6 @@ export const useWishlistActions = () => {
           },
         }
       );
-
-      console.log("remove", response);
 
       if (response.status === 200) {
         wishlistDispatch({

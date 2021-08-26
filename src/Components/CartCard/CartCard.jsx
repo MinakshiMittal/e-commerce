@@ -1,8 +1,12 @@
-import { useCartActions } from "../../hooks/useCartActions";
 import "./CartCard.css";
+import { Loader } from "../../Components";
+import { useLoader } from "../../Contexts";
+import { useCartActions } from "../../hooks/useCartActions";
 
 export const CartCard = ({ product, quantity }) => {
   const { updateQuantity, removeFromCart } = useCartActions();
+  const { loader, setLoader } = useLoader();
+
   return (
     <div className="cart-product-container" key={product._id}>
       <img
@@ -18,13 +22,28 @@ export const CartCard = ({ product, quantity }) => {
           <p className="current-product-price">₹{product.price * quantity}</p>
         </div>
         <div className="update-quantity-container">
-          <button
-            className="button primary-btn decrement"
-            onClick={() => updateQuantity(product._id, quantity - 1)}
-          >
-            -
-          </button>
-          <p className="quantity">{quantity}</p>
+          {quantity > 1 && (
+            <button
+              className="button primary-btn decrement"
+              onClick={() => {
+                setLoader("loading");
+                updateQuantity(product._id, quantity - 1);
+              }}
+            >
+              -
+            </button>
+          )}
+          {quantity === 1 && (
+            <i
+              className="far fa-trash-alt button"
+              onClick={() => removeFromCart(product._id)}
+            ></i>
+          )}
+          {loader === "loading" ? (
+            <Loader />
+          ) : (
+            <p className="quantity">{quantity}</p>
+          )}
           <button
             className="button primary-btn increment"
             onClick={() => updateQuantity(product._id, quantity + 1)}

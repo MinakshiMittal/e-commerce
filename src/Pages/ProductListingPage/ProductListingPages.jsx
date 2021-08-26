@@ -1,4 +1,4 @@
-import { MainNav, ProductCard } from "../../Components";
+import { MainNav, ProductCard, Filter, SortBy } from "../../Components";
 import { useProducts } from "../../Contexts";
 import "./ProductListingPage.css";
 
@@ -10,9 +10,15 @@ export const ProductListingPage = () => {
     <>
       <MainNav />
       <div className="products-listing">
-        {products.map((product) => {
-          return <ProductCard product={product} key={product._id} />;
-        })}
+        <div className="sort-and-filter-container">
+          <SortBy />
+          <Filter />
+        </div>
+        <div className="products-container">
+          {products.map((product) => {
+            return <ProductCard product={product} key={product._id} />;
+          })}
+        </div>
       </div>
     </>
   );

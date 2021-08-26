@@ -13,7 +13,6 @@ export const wishlistReducer = (state, action) => {
       };
 
     case "ADD_TO_WISHLIST":
-      console.log("payload", action.payload);
       return {
         ...state,
         itemsInWishlist: [...action.payload.itemsInWishlist],
@@ -21,6 +20,9 @@ export const wishlistReducer = (state, action) => {
 
     case "REMOVE_FROM_WISHLIST":
       return { ...state, itemsInWishlist: [...action.payload.itemsInWishlist] };
+
+    case "INITIAL_WISHLIST":
+      return { ...state, itemsInWishlist: [] };
 
     default:
       return state;

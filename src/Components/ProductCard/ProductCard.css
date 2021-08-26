@@ -23,8 +23,8 @@
 }
 
 .card-demo {
-  flex: 30%;
-  max-width: 25%;
+  flex: 25%;
+  max-width: 100%;
 }
 
 .product-name-with-wishlist-icon {

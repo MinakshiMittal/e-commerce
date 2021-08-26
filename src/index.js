@@ -10,6 +10,9 @@ import {
   CategoryProvider,
   CartProvider,
   WishlistProvider,
+  LoaderProvider,
+  SortByProvider,
+  FilterProvider,
 } from "./Contexts";
 
 ReactDOM.render(
@@ -20,7 +23,13 @@ ReactDOM.render(
           <CategoryProvider>
             <CartProvider>
               <WishlistProvider>
-                <App />
+                <LoaderProvider>
+                  <SortByProvider>
+                    <FilterProvider>
+                      <App />
+                    </FilterProvider>
+                  </SortByProvider>
+                </LoaderProvider>
               </WishlistProvider>
             </CartProvider>
           </CategoryProvider>

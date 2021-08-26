@@ -5,3 +5,19 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.checkout-btn-container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.button.primary-btn.checkout {
+  width: 10%;
+}
+
+.total-price {
+  margin-top: 5rem;
+  text-align: center;
+  color: #2cb8cb;
+}
