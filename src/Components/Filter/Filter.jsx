@@ -8,7 +8,10 @@ export const Filter = () => {
   console.log(showDiscountOnly);
   return (
     <fieldset style={{ marginTop: "1rem" }}>
-      <legend> Filters </legend>
+      <legend style={{ color: "white", fontWeight: "900", fontSize: "1.2rem" }}>
+        {" "}
+        Filters{" "}
+      </legend>
       {/* <label>
         <input
           type="checkbox"

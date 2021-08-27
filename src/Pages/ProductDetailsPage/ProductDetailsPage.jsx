@@ -12,24 +12,37 @@ export const ProductDetailsPage = () => {
   const product = products?.find((product) => product._id === productId);
 
   console.log(product);
-
-  const { name, imageUrl, price } = product;
   return (
     <>
       <h1>Product Details</h1>
       <div className="product-details-page">
-        <div>
-          <img
-            className="product-image details-page"
-            src={imageUrl}
-            alt="product"
-          />
+        <div className="image-and-short-details">
+          <div>
+            <img
+              className="product-image details-page"
+              src={product?.imageUrl}
+              alt="product"
+            />
+          </div>
+          <div>
+            <h2 className="product-name">{product?.name}</h2>
+            <p className="product-price">Price: {product?.price}</p>
+            <p className="product-category">Category: {product?.category}</p>
+            <p className="product-offer">Offer: {product?.offer}%</p>
+            <p className="product-stock">Stock: {product?.stock} left</p>
+            <div className="action-buttons">
+              <button className="button tertiary-btn">Add to Wishlist</button>
+              <button className="button primary-btn">Add to Cart</button>
+            </div>
+          </div>
         </div>
-        <div>
-          <h2>{name}</h2>
-          <p>Price: {price}</p>
-          <button className="button tertiary-btn">Add to Wishlist</button>
-          <button className="button primary-btn">Add to Cart</button>
+        <div className="about-the-item">
+          <h1>Description</h1>
+          <ul>
+            {product?.aboutThisItem.map((info) => {
+              return <li>{info}</li>;
+            })}
+          </ul>
         </div>
       </div>
     </>

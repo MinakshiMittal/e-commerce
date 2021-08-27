@@ -1,11 +1,12 @@
 import "./ProductCard.css";
 import { useCartActions } from "../../hooks/useCartActions";
 import { useWishlistActions } from "../../hooks/useWishlistActions";
-import { useCart, useWishlist } from "../../Contexts";
+import { useCart, useWishlist, useAuth } from "../../Contexts";
 import { useNavigate } from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
   const { addToCart } = useCartActions();
+  const { isUserLogin } = useAuth();
   const { addToWishlist, removeFromWishlist } = useWishlistActions();
   const {
     state: { itemsInCart },
@@ -36,6 +37,14 @@ export const ProductCard = ({ product }) => {
       itemsInCart?.find((item) => item.product._id === product._id) !==
       undefined
     );
+  };
+
+  const addToCartHandler = () => {
+    if (isUserLogin) {
+      !isItemInCart() ? addToCart(product._id) : navigate("/cart");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -77,11 +86,13 @@ export const ProductCard = ({ product }) => {
           </div>
           <button
             className="button primary-btn add-to-cart"
-            onClick={() => {
-              !isItemInCart() ? addToCart(product._id) : navigate("/cart");
-            }}
+            onClick={addToCartHandler}
           >
-            {!isItemInCart() ? "ADD TO CART" : "GO TO CART"}
+            {isUserLogin
+              ? !isItemInCart()
+                ? "ADD TO CART"
+                : "GO TO CART"
+              : "ADD TO CART"}
           </button>
           <div className="card-badge-offer">
             {product.discount && (

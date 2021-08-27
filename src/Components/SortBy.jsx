@@ -7,7 +7,9 @@ export const SortBy = () => {
   } = useSortBy();
   return (
     <fieldset style={{ marginTop: "1rem" }}>
-      <legend>Sort By</legend>
+      <legend style={{ color: "white", fontWeight: "900", fontSize: "1.2rem" }}>
+        Sort By
+      </legend>
       <label>
         <input
           type="radio"

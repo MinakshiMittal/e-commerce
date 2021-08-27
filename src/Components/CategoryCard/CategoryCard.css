@@ -26,3 +26,8 @@
   margin: 1rem;
   display: flex;
 }
+
+.card-demo.category {
+  flex: 25%;
+  max-width: 25%;
+}

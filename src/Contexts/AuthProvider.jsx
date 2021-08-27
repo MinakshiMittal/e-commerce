@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
       const userLoginResponse = await loginService(email, password);
       if (userLoginResponse.status === 200) {
         loginUser(userLoginResponse.data);
-        navigate(state?.from ? state.from : "/");
+        navigate(state?.from ? state.from : "/products");
       }
     } catch (error) {
       console.error(error);

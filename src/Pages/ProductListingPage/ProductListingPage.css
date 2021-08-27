@@ -3,7 +3,6 @@
   margin-top: 5%;
   padding: 0.5rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
 .sort-and-filter-container {
@@ -16,4 +15,17 @@
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.product-name {
+  color: white;
+  font-size: 2.5rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.product-price {
+  color: #db5581;
+  font-size: 1.3rem;
+  font-weight: 900;
 }

@@ -8,6 +8,37 @@
 
 .product-details-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.image-and-short-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons {
+  display: flex;
+}
+
+.button.tertiary-btn {
+  color: #2cb8cb;
+}
+
+.product-category,
+.product-stock,
+.product-offer {
+  color: white;
+  font-size: 1rem;
+}
+
+.about-the-item {
+  color: white;
+  justify-self: flex-start;
+}
+
+.about-the-item > ul > li {
+  margin: 1rem;
 }

@@ -5,7 +5,7 @@ export const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
   return (
     <div
-      className="card-demo"
+      className="card-demo category"
       onClick={() => navigate(`/categories/${category._id}`)}
       key={category._id}
     >
