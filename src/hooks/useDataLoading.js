@@ -57,5 +57,5 @@ export const useDataLoading = () => {
         }
       }
     })();
-  }, [wishlistDispatch, token]);
+  }, [wishlistDispatch, token, wishlistState]);
 };

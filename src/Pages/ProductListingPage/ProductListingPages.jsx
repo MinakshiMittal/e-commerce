@@ -1,11 +1,7 @@
 import { MainNav, ProductCard, Filter, SortBy } from "../../Components";
-import { useProducts } from "../../Contexts";
 import "./ProductListingPage.css";
 
-export const ProductListingPage = () => {
-  const {
-    state: { products },
-  } = useProducts();
+export const ProductListingPage = ({ filteredData }) => {
   return (
     <>
       <MainNav />
@@ -15,7 +11,7 @@ export const ProductListingPage = () => {
           <Filter />
         </div>
         <div className="products-container">
-          {products.map((product) => {
+          {filteredData.map((product) => {
             return <ProductCard product={product} key={product._id} />;
           })}
         </div>

@@ -1,21 +1,22 @@
-import { useFilter } from "../Contexts";
+import { useFilter } from "../../Contexts";
 
 export const Filter = () => {
   const {
-    state: { showFastDeliveryOnly, showInventoryAll },
+    state: { showFastDeliveryOnly, showDiscountOnly },
     dispatch: filterDispatch,
   } = useFilter();
+  console.log(showDiscountOnly);
   return (
     <fieldset style={{ marginTop: "1rem" }}>
       <legend> Filters </legend>
-      <label>
+      {/* <label>
         <input
           type="checkbox"
           checked={showInventoryAll}
           onChange={() => filterDispatch({ type: "TOGGLE_INVENTORY" })}
         />
         Include Out of Stock
-      </label>
+      </label> */}
 
       <label>
         <input
@@ -24,6 +25,15 @@ export const Filter = () => {
           onChange={() => filterDispatch({ type: "TOGGLE_DELIVERY" })}
         />
         Fast Delivery Only
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          checked={showDiscountOnly}
+          onChange={() => filterDispatch({ type: "TOGGLE_DISCOUNT" })}
+        />
+        Discount only
       </label>
       {/* <label style={{ display: "block", marginTop: "1rem" }}>
         Price Range

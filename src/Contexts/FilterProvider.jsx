@@ -7,6 +7,7 @@ export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, {
     showFastDeliveryOnly: false,
     showInventoryAll: true,
+    showDiscountOnly: false,
   });
 
   return (

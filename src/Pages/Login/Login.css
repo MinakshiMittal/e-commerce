@@ -10,14 +10,14 @@
 }
 
 .background-image-container {
-  margin-left: 7rem;
+  margin-left: 10rem;
 }
 
 .background-image-container > img {
   height: 100vh;
   position: relative;
   flex: 60%;
-  max-width: 60%;
+  max-width: 70%;
 }
 
 .form-container {

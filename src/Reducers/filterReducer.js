@@ -11,6 +11,13 @@ export const filterReducer = (state, action) => {
         ...state,
         showFastDeliveryOnly: !state.showFastDeliveryOnly,
       });
+
+    case "TOGGLE_DISCOUNT":
+      return (state = {
+        ...state,
+        showDiscountOnly: !state.showDiscountOnly,
+      });
+
     default:
       return state;
   }

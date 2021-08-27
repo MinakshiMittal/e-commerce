@@ -6,5 +6,5 @@ export { PrivateRoute } from "./PrivateRoute";
 export { CartCard } from "./CartCard/CartCard";
 export { WishlistCard } from "./WishlistCard";
 export { Loader } from "./Loader/Loader";
-export { Filter } from "./Filter";
+export { Filter } from "./Filter/Filter";
 export { SortBy } from "./SortBy";

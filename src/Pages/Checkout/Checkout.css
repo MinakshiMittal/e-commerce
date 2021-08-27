@@ -1,0 +1,19 @@
+.checkout-heading {
+  color: #2cb8cb;
+}
+
+.checkout-details {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.order-details-heading {
+  display: flex;
+  justify-content: space-around;
+  color: #2cb8cb;
+}
+
+.product-wise-detail {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -4,8 +4,11 @@ const LoaderContext = createContext();
 
 export const LoaderProvider = ({ children }) => {
   const [loader, setLoader] = useState("not loading");
+  const [idForLoader, setIdForLoader] = useState();
   return (
-    <LoaderContext.Provider value={{ loader, setLoader }}>
+    <LoaderContext.Provider
+      value={{ loader, setLoader, idForLoader, setIdForLoader }}
+    >
       {children}
     </LoaderContext.Provider>
   );

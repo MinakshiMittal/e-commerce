@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useAuth, useCart } from "../Contexts";
+import { useAuth, useCart, useLoader } from "../Contexts";
 
 export const useCartActions = () => {
   const { token } = useAuth();
   const { dispatch: cartDispatch } = useCart();
+  const { setLoader } = useLoader();
 
   const addToCart = async (productId) => {
     try {
@@ -78,6 +79,9 @@ export const useCartActions = () => {
             quantity: cart.itemsInCart.quantity,
           },
         });
+        setTimeout(() => {
+          setLoader("not loading");
+        }, 150);
       }
     } catch (error) {
       console.error(error);

@@ -1,7 +1,7 @@
 import { useAuth } from "../Contexts";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import WebShopping from "../Assets/WebShopping.svg";
+import Shopping from "../Assets/Shopping.svg";
 
 export const SignUp = () => {
   const [firstName, setFirstName] = useState();
@@ -20,7 +20,7 @@ export const SignUp = () => {
   return (
     <div className="login-page">
       <div className="background-image-container">
-        <img src={WebShopping} alt="background" />
+        <img src={Shopping} alt="background" />
       </div>
       <div className="form-container">
         <h1 className="form-heading">Sign Up</h1>

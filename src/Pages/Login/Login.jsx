@@ -2,7 +2,7 @@ import "./Login.css";
 import { useAuth } from "../../Contexts";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Shopping from "../../Assets/Shopping1.svg";
+import Shopping from "../../Assets/Shopping.svg";
 
 export const Login = () => {
   const { isUserLogin, loginUserWithCredentials, logout } = useAuth();

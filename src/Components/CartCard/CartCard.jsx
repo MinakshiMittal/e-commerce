@@ -5,7 +5,7 @@ import { useCartActions } from "../../hooks/useCartActions";
 
 export const CartCard = ({ product, quantity }) => {
   const { updateQuantity, removeFromCart } = useCartActions();
-  const { loader, setLoader } = useLoader();
+  const { loader, setLoader, idForLoader, setIdForLoader } = useLoader();
 
   return (
     <div className="cart-product-container" key={product._id}>
@@ -27,6 +27,7 @@ export const CartCard = ({ product, quantity }) => {
               className="button primary-btn decrement"
               onClick={() => {
                 setLoader("loading");
+                setIdForLoader(product._id);
                 updateQuantity(product._id, quantity - 1);
               }}
             >
@@ -39,7 +40,7 @@ export const CartCard = ({ product, quantity }) => {
               onClick={() => removeFromCart(product._id)}
             ></i>
           )}
-          {loader === "loading" ? (
+          {loader === "loading" && product._id === idForLoader ? (
             <Loader />
           ) : (
             <p className="quantity">{quantity}</p>

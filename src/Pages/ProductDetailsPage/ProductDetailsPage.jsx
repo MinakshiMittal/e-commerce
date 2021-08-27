@@ -13,7 +13,7 @@ export const ProductDetailsPage = () => {
 
   console.log(product);
 
-  const { name, imageUrl, price, offer } = product;
+  const { name, imageUrl, price } = product;
   return (
     <>
       <h1>Product Details</h1>
