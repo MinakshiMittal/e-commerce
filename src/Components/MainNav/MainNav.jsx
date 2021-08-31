@@ -19,6 +19,7 @@ export const MainNav = () => {
         src="https://cdn.pixabay.com/photo/2018/04/03/00/48/fingers-3285615_1280.png"
         alt="logo"
         className="hero-image"
+        onClick={() => navigate("/")}
       ></img>
       <div className="hero-name" onClick={() => navigate("/")}>
         MITRA CART

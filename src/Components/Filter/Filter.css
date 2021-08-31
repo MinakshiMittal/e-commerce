@@ -1,0 +1,11 @@
+.label-container {
+  display: flex;
+  align-items: center;
+}
+
+.filter-checkbox,
+.sortby-radio {
+  margin: 0;
+  width: 15%;
+  padding: 0;
+}

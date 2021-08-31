@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useLoader } from "../Contexts";
 
 export const AuthContext = createContext();
 
@@ -36,6 +37,7 @@ export const AuthProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState(userId);
   const navigate = useNavigate();
   const { state } = useLocation();
+  const { setLoader } = useLoader();
 
   const signUpUserWithDetails = async (
     firstName,
@@ -69,6 +71,7 @@ export const AuthProvider = ({ children }) => {
   const loginUser = ({ token, userId }) => {
     setToken(token);
     setLogin(true);
+    setLoader("not loading");
     setUserDetails(userId);
     localStorage?.setItem(
       "login",

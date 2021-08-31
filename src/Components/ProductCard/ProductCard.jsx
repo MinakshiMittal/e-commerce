@@ -52,14 +52,14 @@ export const ProductCard = ({ product }) => {
       <div className="card-demo" key={product._id}>
         <div className="card-container">
           <img
-            className="product-image"
+            className="product product-image"
             src={product.imageUrl}
             alt="product"
             onClick={() => navigate(`/products/${product._id}`)}
           />
           <div className="product-name-with-wishlist-icon">
             <h4
-              className="product-name"
+              className="product product-name"
               onClick={() => navigate(`/products/${product._id}`)}
             >
               {product.name}
@@ -78,14 +78,18 @@ export const ProductCard = ({ product }) => {
 
           <div className="product-price">
             <p
-              className="current-product-price"
+              className="product current-product-price"
               onClick={() => navigate(`/products/${product._id}`)}
             >
               ₹{product.price}
             </p>
           </div>
           <button
-            className="button primary-btn add-to-cart"
+            className={
+              !isItemInCart()
+                ? "button primary-btn add-to-cart"
+                : "button primary-btn go-to-cart"
+            }
             onClick={addToCartHandler}
           >
             {isUserLogin

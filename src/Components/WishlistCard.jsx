@@ -55,7 +55,11 @@ export const WishlistCard = ({ product }) => {
             <p className="current-product-price">₹{product.price}</p>
           </div>
           <button
-            className="button primary-btn add-to-cart"
+            className={
+              !isItemInCart()
+                ? "button primary-btn add-to-cart"
+                : "button primary-btn go-to-cart"
+            }
             onClick={() => {
               !isItemInCart() ? addToCart(product._id) : navigate("/cart");
             }}

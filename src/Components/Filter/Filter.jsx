@@ -1,4 +1,5 @@
 import { useFilter } from "../../Contexts";
+import "./Filter.css";
 
 export const Filter = () => {
   const {
@@ -21,8 +22,9 @@ export const Filter = () => {
         Include Out of Stock
       </label> */}
 
-      <label>
+      <label className="label-container">
         <input
+          className="filter-checkbox"
           type="checkbox"
           checked={showFastDeliveryOnly}
           onChange={() => filterDispatch({ type: "TOGGLE_DELIVERY" })}
@@ -32,6 +34,7 @@ export const Filter = () => {
 
       <label>
         <input
+          className="filter-checkbox"
           type="checkbox"
           checked={showDiscountOnly}
           onChange={() => filterDispatch({ type: "TOGGLE_DISCOUNT" })}

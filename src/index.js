@@ -18,23 +18,23 @@ import {
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <AuthProvider>
-        <ProductProvider>
-          <CategoryProvider>
-            <CartProvider>
-              <WishlistProvider>
-                <LoaderProvider>
+      <LoaderProvider>
+        <AuthProvider>
+          <ProductProvider>
+            <CategoryProvider>
+              <CartProvider>
+                <WishlistProvider>
                   <SortByProvider>
                     <FilterProvider>
                       <App />
                     </FilterProvider>
                   </SortByProvider>
-                </LoaderProvider>
-              </WishlistProvider>
-            </CartProvider>
-          </CategoryProvider>
-        </ProductProvider>
-      </AuthProvider>
+                </WishlistProvider>
+              </CartProvider>
+            </CategoryProvider>
+          </ProductProvider>
+        </AuthProvider>
+      </LoaderProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

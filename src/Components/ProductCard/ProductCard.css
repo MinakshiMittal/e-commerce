@@ -4,6 +4,14 @@
   width: 90%;
 }
 
+.button.primary-btn.go-to-cart {
+  color: #2cb8cb;
+  background-color: transparent;
+  align-self: center;
+  width: 90%;
+  border: 3px solid #2cb8cb;
+}
+
 .product-image {
   height: 50vh;
 }
@@ -13,6 +21,7 @@
   position: absolute;
   top: 19rem;
   right: 1rem;
+  cursor: pointer;
 }
 
 .offer {
@@ -35,4 +44,8 @@
 
 .product-name {
   color: white;
+}
+
+.product {
+  cursor: pointer;
 }

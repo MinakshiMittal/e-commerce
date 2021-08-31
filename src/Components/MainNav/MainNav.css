@@ -18,11 +18,13 @@
 .hero-image {
   width: 6%;
   padding: 0.4rem;
+  cursor: pointer;
 }
 
 .hero-name {
   flex-grow: 1;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .login,
@@ -50,4 +52,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cart,
+.wishlist {
+  cursor: pointer;
 }

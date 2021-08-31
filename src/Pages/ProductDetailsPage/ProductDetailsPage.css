@@ -6,6 +6,11 @@
   margin: 1rem;
 }
 
+.product-details {
+  color: #2cb8cb;
+  margin-top: 5rem;
+}
+
 .product-details-page {
   display: flex;
   flex-direction: column;
@@ -41,4 +46,11 @@
 
 .about-the-item > ul > li {
   margin: 1rem;
+}
+
+.button.primary-btn.in-cart {
+  align-self: center;
+  border: 3px solid #2cb8cb;
+  color: #2cb8cb;
+  background-color: transparent;
 }

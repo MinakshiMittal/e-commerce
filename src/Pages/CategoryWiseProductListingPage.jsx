@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { MainNav, ProductCard } from "../Components";
+import { MainNav, ProductCard, SortBy, Filter } from "../Components";
 import { useParams } from "react-router-dom";
 
 export const CategoryWiseProductListingPage = () => {
@@ -28,14 +28,20 @@ export const CategoryWiseProductListingPage = () => {
     <>
       <MainNav />
       <div className="products-listing">
-        {categoryWiseProducts.map((productItem) => {
-          return (
-            <ProductCard
-              product={productItem.product}
-              key={productItem.product._id}
-            />
-          );
-        })}
+        <div className="sort-and-filter-container">
+          <SortBy />
+          <Filter />
+        </div>
+        <div className="products-container">
+          {categoryWiseProducts.map((productItem) => {
+            return (
+              <ProductCard
+                product={productItem.product}
+                key={productItem.product._id}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );

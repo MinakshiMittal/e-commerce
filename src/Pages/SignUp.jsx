@@ -1,13 +1,16 @@
 import { useAuth } from "../Contexts";
+import { Loader, MainNav } from "../Components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Shopping from "../Assets/Shopping.svg";
+import { useLoader } from "../Contexts";
 
 export const SignUp = () => {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const { loader, setLoader } = useLoader();
 
   const navigate = useNavigate();
 
@@ -15,51 +18,55 @@ export const SignUp = () => {
 
   const signUpHandler = async (event) => {
     event.preventDefault();
+    setLoader("loading");
     signUpUserWithDetails(firstName, lastName, email, password);
   };
   return (
-    <div className="login-page">
-      <div className="background-image-container">
-        <img src={Shopping} alt="background" />
+    <>
+      <MainNav />
+      <div className="login-page">
+        <div className="background-image-container">
+          <img src={Shopping} alt="background" />
+        </div>
+        <div className="form-container">
+          <h1 className="form-heading">Sign Up</h1>
+          <form className="login-form">
+            <label>First Name</label>
+            <input
+              type="text"
+              placeholder="Your first name.."
+              onChange={(event) => setFirstName(event.target.value)}
+            />
+            <label>Last Name</label>
+            <input
+              type="text"
+              placeholder="Your last name"
+              onChange={(event) => setLastName(event.target.value)}
+            />
+            <label>Username</label>
+            <input
+              type="email"
+              placeholder="Your email"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <button class="button primary-btn" onClick={signUpHandler}>
+              {loader === "loading" ? <Loader /> : "Sign Up"}
+            </button>
+            <p className="login-content">
+              Already have an account?{" "}
+              <span className="login-link" onClick={() => navigate("/login")}>
+                Log In
+              </span>
+            </p>
+          </form>
+        </div>
       </div>
-      <div className="form-container">
-        <h1 className="form-heading">Sign Up</h1>
-        <form className="login-form">
-          <label>First Name</label>
-          <input
-            type="text"
-            placeholder="Your first name.."
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-          <label>Last Name</label>
-          <input
-            type="text"
-            placeholder="Your last name"
-            onChange={(event) => setLastName(event.target.value)}
-          />
-          <label>Username</label>
-          <input
-            type="email"
-            placeholder="Your email"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          <button class="button primary-btn" onClick={signUpHandler}>
-            Sign Up
-          </button>
-          <p className="login-content">
-            Already have an account?{" "}
-            <span className="login-link" onClick={() => navigate("/login")}>
-              Log In
-            </span>
-          </p>
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
