@@ -1,6 +1,7 @@
 import { useCart } from "../../Contexts";
 import "./Checkout.css";
 import { MainNav } from "../../Components";
+import { displayRazorpay } from "./helper";
 
 export const Checkout = () => {
   const {
@@ -37,7 +38,10 @@ export const Checkout = () => {
             );
           })}
           <p className="grand-total">Grand Total: ₹{totalPrice()}</p>
-          <button className="button primary-btn place-order">
+          <button
+            className="button primary-btn place-order"
+            onClick={() => displayRazorpay(totalPrice())}
+          >
             Place Order
           </button>
         </div>
